@@ -1,0 +1,25 @@
+﻿@using MvcChollos2.Models
+@model List<Chollo>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Últimas noticias</h2>
+<div class="row">
+    @foreach (Chollo not in Model)
+    {
+        <div class="col-md-6">
+            <h2 style="color: blue">@not.IdChollo | @not.Titular</h2>
+            <h3>@not.Fecha</h3>
+            <p>
+                <a href="@not.Enlace" target="_blank">
+                    @not.Enlace
+                </a>
+            </p>
+            <p>@Html.Raw(not.Descripcion)</p>
+        </div>
+        <hr />
+    }
+</div>
+
